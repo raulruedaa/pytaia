@@ -23,5 +23,4 @@ export interface Exercise {
 export interface Step {
   id: string;
   content: string;
-  explanation: string;
 }

@@ -14,7 +14,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/../logos/pytaia-logo" 
+              src="/../logos/pytaia-logo.png" 
               alt="Pyta.ia Logo" 
               className="w-10 h-10 rounded-full border-2 border-pink-600"
             />

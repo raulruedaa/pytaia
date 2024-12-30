@@ -1,3 +1,14 @@
+# Notação do Id de cada capítulo
+
+Nxyz
+Onde:
+N= inicial da matéria
+x= número da apostila
+y= número conteúdo numerado na ordem do sumário, dado por 2 dígitos (1 --> 01)
+z= número do capítulo na apostila, dado por 2 dígitos (1 --> 01)
+Ex: F10101
+
+
 # Contributing to EduSolve Content
 
 This guide explains how to add new topics and exercises to EduSolve. All content is stored in `src/data/subjects.ts`.

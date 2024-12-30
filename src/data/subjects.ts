@@ -3,19 +3,19 @@ import { Beaker, Brain, Calculator, Atom } from 'lucide-react';
 
 export const subjects: Subject[] = [
   {
-    id: 'physics',
-    name: 'Physics',
+    id: 'fisica',
+    name: 'Física',
     icon: Atom,
-    description: 'Master fundamental physics concepts through step-by-step problem solving',
+    description: 'Aprenda sobre conceitos físicos através dos exercícios resolvidos',
     topics: [
       {
-        id: 'mechanics',
-        name: 'Mechanics',
+        id: 'Dinamica-newtoniana',
+        name: 'Dinâmica Newtoniana',
         exercises: [
           {
-            id: 'projectile-motion',
-            title: 'Projectile Motion',
-            tags: ['kinematics', 'vectors', 'calculus'],
+            id: 'F10101',
+            title: 'Capítulo 1 - Grandezas físicas e operações com vetores',
+            tags: ['Apostila 1'],
             videoId: 'https://www.youtube.com/embed/1ETOJloLK3Y?si=q2YXQ7GOWdGNYHpG',
             steps: [
               {
@@ -26,9 +26,9 @@ export const subjects: Subject[] = [
             ]
           },
           {
-            id: 'newtons-laws',
-            title: "Newton's Laws of Motion",
-            tags: ['forces', 'fundamentals', 'vectors'],
+            id: 'F10102',
+            title: "Capítulo 2 - Velocidade vetorial",
+            tags: ['Apostila 1'],
             steps: [
               {
                 id: '1',
@@ -40,8 +40,8 @@ export const subjects: Subject[] = [
         ]
       },
       {
-        id: 'thermodynamics',
-        name: 'Thermodynamics',
+        id: 'F10103',
+        name: 'Composição de movimento',
         exercises: [
           {
             id: 'heat-transfer',
@@ -77,7 +77,7 @@ export const subjects: Subject[] = [
               {
                 id: '1',
                 content: 'Calculate the molar mass of H2SO4',
-                explanation: 'Add up the atomic masses of all elements'
+                explanation: ''
               }
             ]
           },
