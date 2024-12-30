@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Topic } from '../types';
 import { ExerciseList } from './ExerciseList';
 import { SearchBar } from './SearchBar';
-import { DifficultyFilter } from './DifficultyFilter';
+import { TagFilter } from './TagFilter';
 import { SearchResults } from './SearchResults';
+import { getAllUniqueTags, filterExercisesByTags, filterTopicsByContent } from '../utils/tagUtils';
 
 interface TopicListProps {
   topics: Topic[];
-  onTopicClick: (topicId: string) => void;
 }
 
-export function TopicList({ topics, onTopicClick }: TopicListProps) {
+export function TopicList({ topics }: TopicListProps) {
   const [expandedTopics, setExpandedTopics] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('all');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const allExercises = useMemo(() => 
+    topics.flatMap(topic => topic.exercises),
+    [topics]
+  );
+
+  const availableTags = useMemo(() => 
+    getAllUniqueTags(allExercises),
+    [allExercises]
+  );
+
+  const filteredTopics = useMemo(() => 
+    filterTopicsByContent(topics, selectedTags),
+    [topics, selectedTags]
+  );
 
   const toggleTopic = (topicId: string) => {
     setExpandedTopics(prev =>
@@ -24,51 +39,63 @@ export function TopicList({ topics, onTopicClick }: TopicListProps) {
     );
   };
 
+  const handleTagToggle = (tag: string) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
-        </div>
-        <DifficultyFilter 
-          selectedDifficulty={selectedDifficulty} 
-          onChange={setSelectedDifficulty} 
+      <div className="flex flex-col gap-4">
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        <TagFilter
+          availableTags={availableTags}
+          selectedTags={selectedTags}
+          onTagToggle={handleTagToggle}
         />
       </div>
 
       {searchQuery ? (
         <SearchResults 
-          topics={topics} 
+          topics={filteredTopics} 
           searchQuery={searchQuery}
-          selectedDifficulty={selectedDifficulty}
+          selectedTags={selectedTags}
         />
       ) : (
         <div className="space-y-4">
-          {topics.map((topic) => (
-            <div key={topic.id} className="bg-white rounded-lg shadow-sm">
-              <button
-                onClick={() => toggleTopic(topic.id)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50"
-              >
-                <span className="text-lg font-medium text-gray-900">{topic.name}</span>
-                {expandedTopics.includes(topic.id) ? (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
-                ) : (
-                  <ChevronRight className="w-5 h-5 text-gray-500" />
+          {filteredTopics.map((topic) => {
+            const filteredExercises = filterExercisesByTags(topic.exercises, selectedTags);
+            
+            if (filteredExercises.length === 0) return null;
+
+            return (
+              <div key={topic.id} className="bg-white rounded-lg shadow-sm">
+                <button
+                  onClick={() => toggleTopic(topic.id)}
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50"
+                >
+                  <span className="text-lg font-medium text-gray-900">{topic.name}</span>
+                  {expandedTopics.includes(topic.id) ? (
+                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                  ) : (
+                    <ChevronRight className="w-5 h-5 text-gray-500" />
+                  )}
+                </button>
+                
+                {expandedTopics.includes(topic.id) && (
+                  <div className="px-6 pb-4">
+                    <ExerciseList 
+                      exercises={filteredExercises}
+                      topicId={topic.id}
+                    />
+                  </div>
                 )}
-              </button>
-              
-              {expandedTopics.includes(topic.id) && (
-                <div className="px-6 pb-4">
-                  <ExerciseList 
-                    exercises={topic.exercises.filter(ex => 
-                      selectedDifficulty === 'all' || ex.difficulty === selectedDifficulty
-                    )} 
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

@@ -15,7 +15,7 @@ export interface Topic {
 export interface Exercise {
   id: string;
   title: string;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  tags: string[];
   steps: Step[];
 }
 

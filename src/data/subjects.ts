@@ -15,7 +15,7 @@ export const subjects: Subject[] = [
           {
             id: 'projectile-motion',
             title: 'Projectile Motion',
-            difficulty: 'intermediate',
+            tags: ['kinematics', 'vectors', 'calculus'],
             steps: [
               {
                 id: '1',
@@ -26,8 +26,8 @@ export const subjects: Subject[] = [
           },
           {
             id: 'newtons-laws',
-            title: 'Newton\'s Laws of Motion',
-            difficulty: 'beginner',
+            title: "Newton's Laws of Motion",
+            tags: ['forces', 'fundamentals', 'vectors'],
             steps: [
               {
                 id: '1',
@@ -44,13 +44,13 @@ export const subjects: Subject[] = [
         exercises: [
           {
             id: 'heat-transfer',
-            title: 'Heat Transfer',
-            difficulty: 'intermediate',
+            title: 'Heat Transfer Problems',
+            tags: ['thermal', 'energy', 'calculus'],
             steps: [
               {
                 id: '1',
-                content: 'Calculate the heat transfer in a system',
-                explanation: 'Using Q = mcΔT'
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
               }
             ]
           }
@@ -70,13 +70,25 @@ export const subjects: Subject[] = [
         exercises: [
           {
             id: 'molar-mass',
-            title: 'Calculating Molar Mass',
-            difficulty: 'beginner',
+            title: 'Molar Mass Calculations',
+            tags: ['fundamentals', 'calculations', 'periodic-table'],
             steps: [
               {
                 id: '1',
                 content: 'Calculate the molar mass of H2SO4',
                 explanation: 'Add up the atomic masses of all elements'
+              }
+            ]
+          },
+          {
+            id: 'limiting-reagent',
+            title: 'Limiting Reagent Analysis',
+            tags: ['reactions', 'calculations', 'advanced'],
+            steps: [
+              {
+                id: '1',
+                content: 'Determine the limiting reagent in a reaction between 3.0g of H2 and 32.0g of O2',
+                explanation: 'Compare the molar ratios of reactants'
               }
             ]
           }
@@ -96,13 +108,25 @@ export const subjects: Subject[] = [
         exercises: [
           {
             id: 'punnett-squares',
-            title: 'Punnett Squares',
-            difficulty: 'beginner',
+            title: 'Punnett Square Analysis',
+            tags: ['heredity', 'fundamentals', 'probability'],
             steps: [
               {
                 id: '1',
                 content: 'Complete a Punnett square for a monohybrid cross',
                 explanation: 'Understanding dominant and recessive alleles'
+              }
+            ]
+          },
+          {
+            id: 'gene-expression',
+            title: 'Gene Expression Pathways',
+            tags: ['molecular', 'advanced', 'proteins'],
+            steps: [
+              {
+                id: '1',
+                content: 'Analyze the steps of protein synthesis from DNA to protein',
+                explanation: 'Following transcription and translation processes'
               }
             ]
           }
@@ -122,13 +146,43 @@ export const subjects: Subject[] = [
         exercises: [
           {
             id: 'derivatives',
-            title: 'Basic Derivatives',
-            difficulty: 'intermediate',
+            title: 'Derivative Techniques',
+            tags: ['calculus', 'fundamentals', 'functions'],
             steps: [
               {
                 id: '1',
                 content: 'Find the derivative of f(x) = x² + 3x + 2',
                 explanation: 'Using power rule and constant rule'
+              }
+            ]
+          },
+          {
+            id: 'integration',
+            title: 'Integration Methods',
+            tags: ['calculus', 'advanced', 'functions'],
+            steps: [
+              {
+                id: '1',
+                content: 'Evaluate the integral of x²cos(x)',
+                explanation: 'Using integration by parts'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'linear-algebra',
+        name: 'Linear Algebra',
+        exercises: [
+          {
+            id: 'matrix-operations',
+            title: 'Matrix Operations',
+            tags: ['matrices', 'fundamentals', 'vectors'],
+            steps: [
+              {
+                id: '1',
+                content: 'Multiply two 2x2 matrices',
+                explanation: 'Using the row-column multiplication method'
               }
             ]
           }
