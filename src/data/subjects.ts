@@ -40,13 +40,85 @@ export const subjects: Subject[] = [
         ]
       },
       {
-        id: 'F10103',
-        name: 'Composição de movimento',
+        id: 'cinematica',
+        name: 'Cinemática ',
         exercises: [
           {
-            id: 'heat-transfer',
-            title: 'Heat Transfer Problems',
-            tags: ['thermal', 'energy', 'calculus'],
+            id: 'F10201',
+            title: 'Capítulo 1 - Cinemática escalar conceitos fundamentais',
+            tags: ['Apostila 1'],
+            steps: [
+              {
+                id: '1',
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
+              }
+            ]
+          },
+          {
+            id: 'F10202',
+            title: 'Capítulo 2 - Movimento uniforme',
+            tags: ['Apostila 1'],
+            steps: [
+              {
+                id: '1',
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dinamica-energetica-e-tranformacoes-de-energia',
+        name: 'Dinâmica energética e transformações de energia ',
+        exercises: [
+          {
+            id: 'F10301',
+            title: 'Capítulo 1 - Trabalho e energia: trabalho de uma força',
+            tags: ['Apostila 1'],
+            steps: [
+              {
+                id: '1',
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
+              }
+            ]
+          },
+          {
+            id: 'F10302',
+            title: 'Capítulo 2 - Trabalho e energia: teorema da energia cinética',
+            tags: ['Apostila 1'],
+            steps: [
+              {
+                id: '1',
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'termofisica',
+        name: 'Termofísica ',
+        exercises: [
+          {
+            id: 'F10401',
+            title: 'Capítulo 1 - Temperatura, calor e seus mecanismos de transferência',
+            tags: ['Apostila 1'],
+            steps: [
+              {
+                id: '1',
+                content: 'Calculate the heat transfer in a system with initial temperature 20°C and final temperature 80°C.',
+                explanation: 'Using Q = mcΔT to solve for heat transfer'
+              }
+            ]
+          },
+          {
+            id: 'F10402',
+            title: 'Capítulo 2 - Dilatação ou contração térmica dos sólidos e líquidos',
+            tags: ['Apostila 1'],
             steps: [
               {
                 id: '1',
@@ -77,7 +149,7 @@ export const subjects: Subject[] = [
               {
                 id: '1',
                 content: 'Calculate the molar mass of H2SO4',
-                explanation: ''
+                explanation: 'Add up the atomic masses of all elements'
               }
             ]
           },
