@@ -72,16 +72,16 @@ export function TopicList({ topics }: TopicListProps) {
             if (filteredExercises.length === 0) return null;
 
             return (
-              <div key={topic.id} className="bg-white rounded-lg shadow-sm">
+              <div key={topic.id} className="bg-gradient-to-br from-green-100 via-yellow-50 to-pink-100 rounded-lg shadow-lg">
                 <button
                   onClick={() => toggleTopic(topic.id)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pink-100 hover:shadow-md transition-all"
                 >
-                  <span className="text-lg font-medium text-gray-900">{topic.name}</span>
+                  <span className="text-lg font-bold text-green-800">{topic.name}</span>
                   {expandedTopics.includes(topic.id) ? (
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                    <ChevronDown className="w-6 h-6 text-pink-600" />
                   ) : (
-                    <ChevronRight className="w-5 h-5 text-gray-500" />
+                    <ChevronRight className="w-6 h-6 text-green-600" />
                   )}
                 </button>
                 

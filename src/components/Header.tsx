@@ -1,40 +1,43 @@
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export function Header() {
   const location = useLocation();
-  
-  const isActive = (path: string) => {
-    return location.pathname === path ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900';
+
+  const isActive = (path) => {
+    return location.pathname === path ? 'text-pink-600 font-semibold' : 'text-green-700 hover:text-pink-500';
   };
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-gradient-to-r from-green-100 to-pink-100 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
-            <GraduationCap className="w-8 h-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900">EduSolve</h1>
+            <img 
+              src="/../logos/pytaia-logo.png" 
+              alt="Pyta.ia Logo" 
+              className="w-10 h-10 rounded-full border-2 border-pink-600"
+            />
+            <h1 className="text-4xl font-extrabold text-black-600 tracking-wide hover:italic transition-all">Pyta.ia</h1>
           </Link>
-          <nav className="flex space-x-4">
+          <nav className="flex space-x-6">
             <Link 
               to="/" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/')}`}
+              className={`px-4 py-2 rounded-md text-lg ${isActive('/')}`}
             >
               Home
             </Link>
             <Link 
               to="/subjects" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/subjects')}`}
+              className={`px-4 py-2 rounded-md text-lg ${isActive('/subjects')}`}
             >
-              Subjects
+              Matérias
             </Link>
             <Link 
               to="/about" 
-              className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/about')}`}
+              className={`px-4 py-2 rounded-md text-lg ${isActive('/about')}`}
             >
-              About
+              Sobre
             </Link>
           </nav>
         </div>

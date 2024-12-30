@@ -9,20 +9,20 @@ interface TagFilterProps {
 
 export function TagFilter({ availableTags, selectedTags, onTagToggle }: TagFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
       {availableTags.map((tag) => (
         <button
           key={tag}
           onClick={() => onTagToggle(tag)}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5 transition-colors
+          className={`px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-colors shadow-md
             ${selectedTags.includes(tag)
-              ? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-gradient-to-r from-pink-200 to-green-200 text-green-800 hover:from-green-200 hover:to-pink-200'
+              : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
             }`}
         >
           {tag}
           {selectedTags.includes(tag) && (
-            <X className="w-3 h-3" />
+            <X className="w-4 h-4 text-red-600" />
           )}
         </button>
       ))}

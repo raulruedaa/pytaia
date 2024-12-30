@@ -17,25 +17,25 @@ export function ExercisePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-yellow-50 to-pink-100">
       <Header />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/subjects" className="hover:text-gray-900">Subjects</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link to={`/subjects/${subjectId}`} className="hover:text-gray-900">{subject.name}</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span>{topic.name}</span>
+          <div className="flex items-center gap-2 text-sm text-green-700 mb-4">
+            <Link to="/subjects" className="hover:text-pink-600">Subjects</Link>
+            <ChevronRight className="w-4 h-4 text-green-800" />
+            <Link to={`/subjects/${subjectId}`} className="hover:text-pink-600">{subject.name}</Link>
+            <ChevronRight className="w-4 h-4 text-green-800" />
+            <span className="text-pink-600">{topic.name}</span>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{exercise.title}</h1>
+          <h1 className="text-4xl font-extrabold text-green-800 mb-6">{exercise.title}</h1>
           
           <div className="flex gap-2 mb-6">
             {exercise.tags.map(tag => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                className="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-200 text-yellow-800"
               >
                 {tag}
               </span>
@@ -53,15 +53,15 @@ export function ExercisePage() {
 
           <div className="space-y-8">
             {exercise.steps.map((step, index) => (
-              <div key={step.id} className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="font-medium text-gray-900 mb-4">
+              <div key={step.id} className="bg-white rounded-lg shadow-md p-6 border border-green-300">
+                <h3 className="font-bold text-pink-600 mb-4">
                   Step {index + 1}: Problem
                 </h3>
-                <p className="text-gray-700 mb-6">{step.content}</p>
+                <p className="text-green-800 mb-6">{step.content}</p>
                 
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <h4 className="font-medium text-blue-900 mb-2">Explanation</h4>
-                  <p className="text-blue-800">{step.explanation}</p>
+                <div className="bg-yellow-100 rounded-lg p-4">
+                  <h4 className="font-medium text-green-800 mb-2">Explanation</h4>
+                  <p className="text-pink-600">{step.explanation}</p>
                 </div>
               </div>
             ))}

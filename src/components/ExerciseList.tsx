@@ -17,27 +17,27 @@ export function ExerciseList({ exercises, topicId }: ExerciseListProps) {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-4">
       {exercises.map((exercise) => (
         <button
           key={exercise.id}
           onClick={() => handleExerciseClick(exercise.id)}
-          className="w-full flex items-center justify-between p-3 rounded-md hover:bg-gray-50 transition-colors"
+          className="w-full flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-green-100 to-pink-100 hover:from-pink-100 hover:to-green-100 transition-all shadow-md"
         >
-          <div className="flex items-center gap-4">
-            <h4 className="font-medium text-gray-900">{exercise.title}</h4>
-            <div className="flex gap-2">
+          <div className="flex items-center gap-6">
+            <h4 className="font-semibold text-green-800 text-lg">{exercise.title}</h4>
+            <div className="flex gap-3">
               {exercise.tags.map(tag => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                  className="px-3 py-1 rounded-full text-sm font-medium bg-pink-200 text-pink-800"
                 >
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <ArrowRight className="w-4 h-4 text-gray-400" />
+          <ArrowRight className="w-5 h-5 text-green-600" />
         </button>
       ))}
     </div>

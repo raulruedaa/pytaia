@@ -12,13 +12,17 @@ export function SubjectCard({ subject, onClick }: SubjectCardProps) {
   return (
     <button
       onClick={() => onClick(subject)}
-      className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center group"
+      className="bg-gradient-to-r from-green-100 to-pink-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center group"
     >
-      <div className="p-4 rounded-full bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
-        <Icon className="w-8 h-8 text-blue-600" />
+      <div className="">
+        <Icon className="w-10 h-10 text-pink-600 group-hover:text-pink-800" />
       </div>
-      <h3 className="mt-4 text-xl font-semibold text-gray-800">{subject.name}</h3>
-      <p className="mt-2 text-gray-600 text-sm">{subject.description}</p>
+      <h3 className="mt-4 text-2xl font-bold text-pink-600 group-hover:text-pink-800">
+        {subject.name}
+      </h3>
+      <p className="mt-2 text-pink-500 group-hover:text-pink-700">
+        {subject.description}
+      </p>
     </button>
   );
 }
