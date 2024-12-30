@@ -16,6 +16,7 @@ export interface Exercise {
   id: string;
   title: string;
   tags: string[];
+  videoId?: string; // Optional YouTube video ID
   steps: Step[];
 }
 

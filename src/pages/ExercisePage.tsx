@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Header } from '../components/Header';
+import { VideoEmbed } from '../components/VideoEmbed';
 import { subjects } from '../data/subjects';
 import { ChevronRight } from 'lucide-react';
 
@@ -40,6 +41,15 @@ export function ExercisePage() {
               </span>
             ))}
           </div>
+
+          {exercise.videoId && (
+            <div className="mb-8">
+              <VideoEmbed 
+                videoId={exercise.videoId} 
+                title={exercise.title} 
+              />
+            </div>
+          )}
 
           <div className="space-y-8">
             {exercise.steps.map((step, index) => (

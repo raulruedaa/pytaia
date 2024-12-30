@@ -43,6 +43,7 @@ Add exercises to a topic's `exercises` array:
   id: 'wave-interference',           // Unique identifier
   title: 'Wave Interference',        // Display title
   tags: ['waves', 'superposition'],  // Relevant tags for filtering
+  videoId: 'dQw4w9WgXcQ',           // Optional YouTube video ID
   steps: [                          // Solution steps
     {
       id: '1',
@@ -53,6 +54,16 @@ Add exercises to a topic's `exercises` array:
 }
 ```
 
+### Adding YouTube Videos
+
+To add a video to an exercise:
+
+1. Find the YouTube video you want to embed
+2. Get the video ID from the URL:
+   - For `https://www.youtube.com/watch?v=dQw4w9WgXcQ`, the ID is `dQw4w9WgXcQ`
+   - For `https://youtu.be/dQw4w9WgXcQ`, the ID is also `dQw4w9WgXcQ`
+3. Add the ID to the exercise object using the `videoId` property
+
 ## Best Practices
 
 ### Tags
@@ -62,6 +73,12 @@ Add exercises to a topic's `exercises` array:
   - Topic areas: 'calculus', 'vectors', 'thermal'
   - Skills: 'problem-solving', 'analysis'
 - Keep tags lowercase and use hyphens for multiple words
+
+### Videos
+- Choose high-quality educational content
+- Ensure videos are relevant to the exercise
+- Prefer shorter, focused videos (5-15 minutes)
+- Check that videos are available in your region
 
 ### Content Quality
 - Write clear, concise problem statements
@@ -83,6 +100,7 @@ Here's a complete example of adding a new topic with an exercise:
       id: 'standing-waves',
       title: 'Standing Waves on a String',
       tags: ['waves', 'fundamentals', 'harmonics'],
+      videoId: 'dQw4w9WgXcQ',  // Example video ID
       steps: [
         {
           id: '1',
@@ -103,3 +121,4 @@ Before submitting:
 3. Check that tags are consistent with existing ones
 4. Test that exercises appear in search results
 5. Verify that tag filtering works correctly
+6. Test that videos play correctly

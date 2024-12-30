@@ -16,6 +16,7 @@ export const subjects: Subject[] = [
             id: 'projectile-motion',
             title: 'Projectile Motion',
             tags: ['kinematics', 'vectors', 'calculus'],
+            videoId: '1ETOJloLK3Y&',
             steps: [
               {
                 id: '1',
