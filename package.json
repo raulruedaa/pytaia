@@ -9,7 +9,12 @@
       "zustand": "^4.5.2"
    },
    "devDependencies": {
-      "@types/firebase": "^2.4.32"
+      "@types/firebase": "^2.4.32",
+      "@types/react": "^18.2.0",
+      "@types/react-dom": "^18.2.0",
+      "typescript": "^5.0.0",
+      "@vitejs/plugin-react": "^4.0.0",
+      "vite": "^5.0.0"
    },
    "scripts": {
       "dev": "vite",
