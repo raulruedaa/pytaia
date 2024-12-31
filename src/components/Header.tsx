@@ -18,7 +18,7 @@ export function Header() {
               alt="Pyta.ia Logo" 
               className="w-10 h-10 rounded-full border-2 border-pink-600"
             />
-            <h1 className="text-4xl font-extrabold text-black-600 tracking-wide hover:italic transition-all">Pyta.ia</h1>
+            <h1 className="text-4xl font-extrabold text-black-600 tracking-wide hover:italic transition-all">Pytaia</h1>
           </Link>
           <nav className="flex space-x-6">
             <Link 
