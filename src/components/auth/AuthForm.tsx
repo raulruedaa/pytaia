@@ -3,27 +3,32 @@ import { Mail, Lock, Chrome } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { Input } from './Input';
 import { useNavigate } from 'react-router-dom';
+import { registerWithEmail } from '../../lib/firebase/auth';
 
 export function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+
     try {
       if (isLogin) {
         await login(email, password);
       } else {
-        // TODO: Implementar registro
-        // await register(email, password);
+        // Registrar novo usuário
+        const { user } = await registerWithEmail(email, password);
+        // O useAuth já vai detectar a mudança de auth state e atualizar o estado
       }
       navigate('/');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erro de autenticação:', error);
-      // TODO: Mostrar mensagem de erro para o usuário
+      setError(error.message || 'Ocorreu um erro durante a autenticação');
     }
   };
 
@@ -31,9 +36,9 @@ export function AuthForm() {
     try {
       await loginWithGoogle();
       navigate('/');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erro no login com Google:', error);
-      // TODO: Mostrar mensagem de erro para o usuário
+      setError(error.message || 'Erro ao fazer login com Google');
     }
   };
 
@@ -42,6 +47,12 @@ export function AuthForm() {
       <h2 className="text-3xl font-bold text-green-800 mb-6 text-center">
         {isLogin ? 'Welcome Back' : 'Create Account'}
       </h2>
+
+      {error && (
+        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          {error}
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <Input
