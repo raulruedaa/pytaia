@@ -2,20 +2,39 @@ import React, { useState } from 'react';
 import { Mail, Lock, Chrome } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { Input } from './Input';
+import { useNavigate } from 'react-router-dom';
 
 export function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login, loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login();
+    try {
+      if (isLogin) {
+        await login(email, password);
+      } else {
+        // TODO: Implementar registro
+        // await register(email, password);
+      }
+      navigate('/');
+    } catch (error) {
+      console.error('Erro de autenticação:', error);
+      // TODO: Mostrar mensagem de erro para o usuário
+    }
   };
 
-  const handleGoogleLogin = () => {
-    loginWithGoogle();
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate('/');
+    } catch (error) {
+      console.error('Erro no login com Google:', error);
+      // TODO: Mostrar mensagem de erro para o usuário
+    }
   };
 
   return (
