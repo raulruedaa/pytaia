@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LoginButton } from "./auth/LoginButton";
 import { useAuth } from "../hooks/useAuth";
 import { UpgradeButton } from "./subscription/UpgradeButton";
+import pytaiaLogo from "../assets/logos/pytaia-logo.svg";
 
 export function Header() {
    const { isAuthenticated, hasPlus, user } = useAuth();
@@ -15,7 +16,7 @@ export function Header() {
                <div className="flex items-center flex-1">
                   <Link to="/" className="flex items-center">
                      <img
-                        src="/../logos/pytaia-logo.png"
+                        src={pytaiaLogo}
                         alt="Pytaia Logo"
                         className="h-8 w-auto mr-2"
                      />
