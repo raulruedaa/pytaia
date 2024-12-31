@@ -1,5 +1,4 @@
 {
-   "type": "module",
    "dependencies": {
       "@tailwindcss/aspect-ratio": "^0.4.2",
       "firebase": "^10.8.0",
